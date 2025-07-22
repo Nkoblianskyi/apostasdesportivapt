@@ -16,7 +16,7 @@ export default function PoliticaPrivacidadePage() {
             <h2 className="text-2xl font-bold mb-4 text-green-400">1. Quem Somos</h2>
             <div className="text-slate-300 leading-relaxed space-y-3">
               <p>
-                O ApostasDesportivasPT.com é um serviço de comparação independente de casas de apostas desportivas
+                O ApostasDesportivaPT.com é um serviço de comparação independente de casas de apostas desportivas
                 licenciadas em Portugal. O nosso objetivo é fornecer informações precisas e atualizadas para ajudar os
                 utilizadores a tomar decisões informadas.
               </p>

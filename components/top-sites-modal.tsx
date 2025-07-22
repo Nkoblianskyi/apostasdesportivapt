@@ -36,7 +36,7 @@ export function TopSitesModal() {
     return () => clearTimeout(timer)
   }, [])
 
-  const topSite = bettingSites[0] // Тільки перший сайт
+  const topSite = bettingSites[0]
 
   const handleDontShowAgain = () => {
     localStorage.setItem("topSitesModalDismissed", "true")
