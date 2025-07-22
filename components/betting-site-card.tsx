@@ -77,7 +77,7 @@ export function BettingSiteCard({ site, rank }: BettingSiteCardProps) {
           {/* Layout Desktop e Tablet */}
           <div className="hidden md:flex md:items-center md:gap-4 lg:gap-6 pt-6">
             {/* Logo */}
-            <div className="flex-shrink-0 bg-slate-50 p-2 rounded-lg border">
+            <div className="flex-shrink-0">
               <img
                 src={site.logo || "/placeholder.svg"}
                 alt={site.name}
