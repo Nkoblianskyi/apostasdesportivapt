@@ -6,6 +6,7 @@ import Link from "next/link"
 
 export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
+  const [showDetails, setShowDetails] = useState(false)
 
   useEffect(() => {
     const cookieConsent = localStorage.getItem("cookieConsent")
@@ -42,8 +43,31 @@ export function CookieBanner() {
             </Link>
             . Pode gerir as suas preferências a qualquer momento.
           </p>
+          {showDetails && (
+            <div className="mt-4 p-4 bg-slate-100 rounded-lg">
+              <h4 className="font-semibold mb-2">Налаштування cookies:</h4>
+              <div className="space-y-2 text-sm">
+                <label className="flex items-center">
+                  <input type="checkbox" checked disabled className="mr-2" />
+                  Необхідні cookies (завжди активні)
+                </label>
+                <label className="flex items-center">
+                  <input type="checkbox" defaultChecked className="mr-2" />
+                  Аналітичні cookies (Google Analytics)
+                </label>
+              </div>
+            </div>
+          )}
         </div>
         <div className="flex items-center gap-3">
+          <Button
+            onClick={() => setShowDetails(!showDetails)}
+            variant="outline"
+            size="sm"
+            className="border-green-600 text-slate-700 hover:bg-green-50 bg-transparent mr-2"
+          >
+            {showDetails ? "Приховати" : "Налаштування"}
+          </Button>
           <Button
             onClick={rejectCookies}
             variant="outline"

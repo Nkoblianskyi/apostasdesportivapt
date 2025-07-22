@@ -9,6 +9,7 @@ import { bettingSites } from "@/lib/mock-data"
 export function TopSitesModal() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(true)
+  const [dontShowAgain, setDontShowAgain] = useState(false)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -22,6 +23,12 @@ export function TopSitesModal() {
   }, [])
 
   useEffect(() => {
+    const dontShow = localStorage.getItem("topSitesModalDismissed")
+    if (dontShow) {
+      setDontShowAgain(true)
+      return
+    }
+
     const timer = setTimeout(() => {
       setIsOpen(true)
     }, 10000)
@@ -29,7 +36,12 @@ export function TopSitesModal() {
     return () => clearTimeout(timer)
   }, [])
 
-  const topSite = bettingSites[0]
+  const topSite = bettingSites[0] // Тільки перший сайт
+
+  const handleDontShowAgain = () => {
+    localStorage.setItem("topSitesModalDismissed", "true")
+    setIsOpen(false)
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -88,12 +100,19 @@ export function TopSitesModal() {
           </div>
         </div>
 
-        <div className="text-center pt-3">
+        <div className="text-center pt-3 space-y-2">
           <Button
             onClick={() => setIsOpen(false)}
-            className="bg-slate-600 hover:bg-slate-700 text-white font-bold px-6 py-2 rounded-lg border-none"
+            className="bg-slate-600 hover:bg-slate-700 text-white font-bold px-6 py-2 rounded-lg border-none mr-2"
           >
             Fechar
+          </Button>
+          <Button
+            onClick={handleDontShowAgain}
+            variant="outline"
+            className="text-slate-400 border-slate-600 hover:bg-slate-700 px-4 py-2 text-sm bg-transparent"
+          >
+            Não mostrar novamente
           </Button>
         </div>
       </DialogContent>
