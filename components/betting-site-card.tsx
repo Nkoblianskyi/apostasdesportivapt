@@ -116,11 +116,6 @@ export function BettingSiteCard({ site, rank }: BettingSiteCardProps) {
             <div className="flex-shrink-0">
               <Button
                 className="bg-red-600 hover:bg-red-700 text-white font-bold px-4 lg:px-6 py-2 lg:py-3 text-sm lg:text-base border border-red-500"
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  window.open(site.url, "_blank", "noopener,noreferrer")
-                }}
               >
                 OBTER BÓNUS
               </Button>
@@ -170,11 +165,6 @@ export function BettingSiteCard({ site, rank }: BettingSiteCardProps) {
             {/* Botão */}
             <Button
               className="bg-red-600 hover:bg-red-700 text-white font-bold w-full py-3 border border-red-500"
-              onClick={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                window.open(site.url, "_blank", "noopener,noreferrer")
-              }}
             >
               OBTER BÓNUS
             </Button>
